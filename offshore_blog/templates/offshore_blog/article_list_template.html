@@ -1,0 +1,40 @@
+{% load static %}
+
+
+{% if page_obj.has_previous %}
+<a href="?page={{ page_obj.previous_page_number }}">previous</a>
+{% endif %}
+
+Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+
+{% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number }}">next</a>
+{% endif %}
+
+
+{% for article in articles %}
+<div>
+    <div class="head_art"><h4>{{ article.head_article }} </h4></div>
+    <div class="article"><p>{{ article.content | truncatewords:75 }}</p></div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="{% url 'offshore_blog:page_article' article.id %}" class="btn btn-success" role="button" data-bs-toggle="button">Read</a>
+    </div>
+    <div class="content_article"><p>Views: {{ article.page_views }}</p></div>
+</div>
+{% endfor %}
+
+
+
+
+<br><br><br><br>
+
+
+<!--<div>-->
+<!--    <ul>-->
+<!--    {% for p in paginator.page_range %}-->
+<!--    <li>-->
+<!--        <a href="?page={{ p }}">{{ p }}</a>-->
+<!--    </li>-->
+<!--    {% endfor %}-->
+<!--    </ul>-->
+<!--</div>-->

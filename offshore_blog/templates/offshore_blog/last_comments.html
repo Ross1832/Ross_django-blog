@@ -1,0 +1,15 @@
+{% load static %}
+
+
+<div class="block_top_five">
+    <div><p>LAST 5 COMMENTS</p></div>
+    <div>
+        {% for comment in 5_last_comments %}
+        <a class=" list-group-item list-group-item-action" href="{% url 'offshore_blog:page_article' comment.post_id %}">
+        <p>{{ comment.content | truncatewords:8 }}</p>
+            <p>{{ comment.pub_date | date:"Y-m-d H:i:s" }}</p>
+        </a>
+        {% endfor %}
+
+    </div>
+</div>

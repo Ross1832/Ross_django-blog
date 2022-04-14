@@ -1,0 +1,18 @@
+.head_article {
+    margin-top: 50px;
+    font-size: 25px;
+
+}
+.content_article {
+    font-size: 20px;
+    font: italic 1.2em "Fira Sans", serif;
+    line-height: 32px;
+}
+
+.form_for_comments {
+    margin: 50px 0 50px 0;
+}
+
+.block_comments {
+    margin: 50px 0 50px 0;
+}

@@ -1,0 +1,31 @@
+{% load static %}
+{% load mptt_tags %}
+
+<div class="block_comments">
+  <ul>
+    {% recursetree comments %}
+    <li>
+      <div id="{{ node.id }}">Comment by {{ node.name }}: <p>{{ node.content }}</p></div>
+<!--      <div>{{ node.id }}</div>-->
+<!--      <button class="btn btn-success" onclick="myFunction({{ node.id }})">Reply</button>-->
+      {% if not node.is_leaf_node %}
+      <ul>{{ children }}</ul>
+
+      {% endif %}
+    </li>
+    {% endrecursetree %}
+  </ul>
+</div>
+
+
+<div class="form_for_comments">
+  <form method="POST">
+  {% csrf_token %}
+  {{ comment_form }}
+  <div class="mb-3">
+    <input name="submit" type="submit" id="submit" class="btn btn-success" value="Submit Comment">
+  </div>
+</form>
+</div>
+
+

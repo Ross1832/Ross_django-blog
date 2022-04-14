@@ -1,0 +1,10 @@
+{% load static %}
+
+<div class="block_top_five">
+    <p>TOP 5 ARTICLES</p>
+{% for article in article_views %}
+    <div>
+        <a class=" list-group-item list-group-item-action" href="{% url 'offshore_blog:page_article' article.id %}"><p><strong>{{ article.head_article | truncatewords:8 }}</strong></p></a>
+    </div>
+{% endfor %}
+</div>
